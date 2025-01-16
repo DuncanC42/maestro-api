@@ -1,5 +1,7 @@
 package bzh.duncan.maestroapi.dto;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -8,6 +10,8 @@ public class HostDto {
     private Long id;
     private String groupeName;
     private int groupeCode;
+
+    @JsonManagedReference
     private List<PlayerDto> playerDtoList;
 
     public HostDto(String groupeName) {

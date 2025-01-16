@@ -12,4 +12,6 @@ public interface IHostService {
     public HostDto createHost(HostDto newHost);
     public HostDto getHostByGroupeNameAndGroupCode(String groupeName, int groupCode);
     public void addPlayerToHost(HostDto hostDto, PlayerDto playerDto);
+
+    public List<Player> getPlayersByHostName(String hostName);
 }

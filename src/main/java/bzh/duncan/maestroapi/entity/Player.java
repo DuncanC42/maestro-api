@@ -1,5 +1,6 @@
 package bzh.duncan.maestroapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,7 @@ public class Player {
 
     @ManyToOne
     @JoinColumn(name = "host_id")
+    @JsonBackReference
     private Host host;
 
 

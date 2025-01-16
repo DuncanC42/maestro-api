@@ -44,6 +44,14 @@ public class HostService implements IHostService{
         Player player = PlayerMapper.mapPlayerDtoToPlayer(playerDto);
         host.getPlayerList().add(player);
         hostRepository.save(host);
+    }
 
+    @Override
+    public List<Player> getPlayersByHostName(String groupeName) {
+        Host host = hostRepository.findByGroupeName((groupeName));
+        if (host != null) {
+            return host.getPlayerList();
+        }
+        return List.of();
     }
 }

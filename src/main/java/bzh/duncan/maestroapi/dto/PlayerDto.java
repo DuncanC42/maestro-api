@@ -1,11 +1,13 @@
 package bzh.duncan.maestroapi.dto;
 
-import bzh.duncan.maestroapi.entity.Host;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.Objects;
 
 public class PlayerDto {
     private Long id;
     private String pseudo;
+    @JsonBackReference
     private HostDto host;
 
     public PlayerDto(String pseudo, HostDto host) {

@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface HostRepository extends JpaRepository<Host, Long> {
     Host findByGroupeNameAndGroupCode(String groupeName, int groupCode);
+
+    Host findByGroupeName(String groupeName);
 }

@@ -18,11 +18,17 @@ public class HostController {
     public HostController(HostService hostService) {
         this.hostService = hostService;
     }
-
+    
     @GetMapping("/all")
     public ResponseEntity<ApiResponse> getAllHost(){
         List<Host> hostList = hostService.listAllHost();
         return ResponseEntity.ok(new ApiResponse("Liste des hosts", hostList));
+    }
+
+    @GetMapping("/{hostName}/players")
+    public ResponseEntity<ApiResponse> getPlayersByHost(@PathVariable String hostName) {
+        List<Player> playerList = hostService.getPlayersByHostName(hostName);
+        return ResponseEntity.ok(new ApiResponse("List of players for host " + hostName, playerList));
     }
 
     @PostMapping("/create/{hostName}")

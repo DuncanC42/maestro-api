@@ -2,7 +2,6 @@ package bzh.duncan.maestroapi.service.player;
 
 import bzh.duncan.maestroapi.dto.HostDto;
 import bzh.duncan.maestroapi.dto.PlayerDto;
-import bzh.duncan.maestroapi.entity.Host;
 import bzh.duncan.maestroapi.entity.Player;
 import bzh.duncan.maestroapi.mapper.PlayerMapper;
 import bzh.duncan.maestroapi.repository.PlayerRepository;

@@ -11,5 +11,4 @@ public interface IPlayerService {
     public List<Player> listAllPlayer();
     public PlayerDto createPlayer(PlayerDto playerDto);
     public PlayerDto createPlayerByNameAndHost(String playerName, HostDto hostDto);
-
 }
