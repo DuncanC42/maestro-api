@@ -50,4 +50,22 @@ public class PlayerController {
                     .body(new ApiResponse("Error joining host: " + e.getMessage(), null));
         }
     }
+
+    // Delete player by its pseudo and his group name
+    @DeleteMapping("/delete")
+    public ResponseEntity<ApiResponse> deletePlayer(
+            @RequestParam String playerPseudo,
+            @RequestParam String hostName
+    ) {
+        try {
+            playerService.removePlayerFromGroup(playerPseudo, hostName);
+            return ResponseEntity.ok(new ApiResponse("Player has been removed", null));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest()
+                    .body(new ApiResponse("Error removing player: " + e.getMessage(), null));
+        }
+    }
+
+
+
 }
