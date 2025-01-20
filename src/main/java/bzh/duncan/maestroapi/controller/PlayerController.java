@@ -58,6 +58,13 @@ public class PlayerController {
             @RequestParam String hostName
     ) {
         try {
+            // Envoyer une notification WebSocket
+            HostDto hostDto = new HostDto(hostName);
+            PlayerDto playerDto = new PlayerDto(playerPseudo, hostDto);
+            messagingTemplate.convertAndSend(
+                    "/topic/game/" + hostName + "/players",
+                    new WebSocketController.PlayerUpdate("LEAVE", playerDto, hostName)
+            );
             playerService.removePlayerFromGroup(playerPseudo, hostName);
             return ResponseEntity.ok(new ApiResponse("Player has been removed", null));
         } catch (Exception e) {
